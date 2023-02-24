@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Display from './components/Display';
+import Tabs from './components/Tabs';
 
 function App() {
+
+
+  
+  const tabsList = [
+    {tabNum: "Tab1", tabContent: "tab 1 content"},
+    {tabNum: "Tab2", tabContent: "tab 2 content"},
+    {tabNum: "Tab3", tabContent: "tab 3 content"},
+    {tabNum: "Tab4", tabContent: "tab 4 content"}
+  ]
+  
+  const [allTabs, setAllTabs] = useState(tabsList)
+  const [currentTab, setCurrentTab] = useState(0)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Tabs allTabs={allTabs} currentTab={currentTab} setCurrentTab={setCurrentTab}/>
+      <Display allTabs={allTabs} currentTab={currentTab}/>
     </div>
   );
 }
