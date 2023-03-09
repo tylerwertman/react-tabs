@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 const Display = (props) => {
     const { allTabs, currentTab } = props;
 
+    
     return (
         <div className='display'>
             {allTabs[currentTab].tabContent}
